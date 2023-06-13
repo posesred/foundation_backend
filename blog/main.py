@@ -67,7 +67,7 @@ def create_user(request: schema.User,db:Session = Depends(get_db)):
     db.refresh(new_user)
     return new_user
 
-
+#
 @app.get("/user/{id}", response_model= UserResponse, tags=['users'])
 def get_user(id: int , db:Session = Depends(get_db)):
     if user := db.query(model.User).filter(model.User.id == id).first():
