@@ -20,3 +20,8 @@ def create_user(response: schema.User,db:Session = Depends(get_db)):
 @router.get("/{id}", response_model= UserResponse)
 def get_user(id: int , db:Session = Depends(get_db)):
     return helper.get_user(id,db)
+
+
+@router.get("/")
+def get_all_users(db:Session = Depends(get_db)):
+    return helper.get_all_users(db)
